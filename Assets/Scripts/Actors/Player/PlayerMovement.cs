@@ -17,11 +17,13 @@ public class PlayerMovement : MonoBehaviour
         _inputManager = GetComponent<InputManager>();
         _inputManager.OnMove += OnMove;
         _inputManager.OnStop += OnStop;
+        _inputManager.OnJump += OnJump;
     }
 
     void Update()
     {
-
+        if (_rigidbody.velocity.y == 0)
+            _inputManager.CanJump = true;
     }
 
     private void OnMove(Vector2 horizontalDirection)
@@ -35,11 +37,17 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
         else
         {
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x * 0.94f, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x * 0.10f, _rigidbody.velocity.y);
             if (_rigidbody.velocity.x > 1)
                 _rigidbody.AddForce(new Vector2(-30f, 0));
-            else if(_rigidbody.velocity.x < -1)
+            else if (_rigidbody.velocity.x < -1)
                 _rigidbody.AddForce(new Vector2(30f, 0));
         }
+    }
+
+    private void OnJump()
+    {
+        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 9);
+        _inputManager.CanJump = false;
     }
 }
