@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJump()
     {
-        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 9);
+        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 15);
         _inputManager.CanJump = false;
     }
 }

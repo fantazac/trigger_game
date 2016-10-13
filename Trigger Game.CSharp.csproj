@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Input\InputManager.cs" />
     <Compile Include="Assets\Scripts\Objects\Button\HideButton.cs" />
     <Compile Include="Assets\Scripts\Objects\Button\RemoveObjectTrigger.cs" />
+    <Compile Include="Assets\Scripts\Objects\MoveBall.cs" />
     <Compile Include="Assets\Scripts\Objects\Portal\BringPlayerToCenter.cs" />
     <Compile Include="Assets\Scripts\Objects\Portal\RotatePortal.cs" />
     <Compile Include="Assets\Scripts\Objects\Wall\RemoveObject.cs" />
